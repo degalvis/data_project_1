@@ -20,7 +20,31 @@ def insertar_elemento(self, dato):
     actual.next = node(data=dato)
 
 def eliminar_nodo(self, elemento):
-    
+    if self.head != None:
+        anterior = None
+        actual = self.head
+        while actual != None and actual.dato != elemento:
+            anterior = actual
+            actual = actual.next
+        if actual == None:
+            print("El elemento no se encuentra en la lista")
+        elif anterior == None:
+            actual = actual.next
+        else:
+            anterior = actual.next 
+
+def imprimir_lista(self):
+    if self.head != None:
+        actual = self.head
+        while actual != None:
+            print(actual.data "," )
+            actual = actual.next
+
+
+
+
+
+
 
 
 
