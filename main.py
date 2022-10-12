@@ -20,7 +20,14 @@ def insertar_elemento(self, dato):
     actual.next = node(data=dato)
 
 def eliminar_nodo(self, elemento):
-    
-
-
-
+    def delete_node(self, key):
+        curr = self.head
+        prev = None
+        while curr and curr.data != key:
+            prev = curr
+            curr = curr.next
+        if prev is None:
+            self.head = curr.next
+        elif curr:
+            prev.next = curr.next
+            curr.next = None
