@@ -37,10 +37,17 @@ class lista:
         if self.head != None:
             actual = self.head
             while actual != None:
-                print(actual.data + "," )
+                print(actual.data + ", ")
                 actual = actual.next
 
 
+s = lista()
+
+s.insertar_elemento(1)
+s.insertar_elemento(2)
+s.insertar_elemento(3)
+
+s.imprimir_lista()
 
 
 
