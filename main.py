@@ -3,6 +3,7 @@ class nodo:
         self.data = data
         self.next = next
 
+
 class lista: 
     def __init__(self):
         self.head = None
@@ -39,6 +40,12 @@ class lista:
             while actual != None:
                 print(str(actual.data), end = ", ")
                 actual = actual.next
+
+def actualizar():
+    
+
+
+
 
 
 s = lista()
