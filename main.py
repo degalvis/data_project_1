@@ -20,7 +20,9 @@ class lista:
         actual.next = nodo(data = dato)
 
     def eliminar_nodo(self, elemento):
-        if self.head != None:
+        if self.head == None:
+            print("Lo sentimos, no hay elementos en la lista")
+        else:
             anterior = None
             actual = self.head
             while actual != None and actual.dato != elemento:
@@ -34,7 +36,9 @@ class lista:
                 anterior = actual.next 
 
     def imprimir_lista(self):
-        if self.head != None:
+        if self.head == None:
+            print("Lo sentimos, no hay elementos en la lista")
+        else:
             actual = self.head
             while actual != None:
                 print(str(actual.data), end = ", ")
