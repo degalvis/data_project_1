@@ -1,10 +1,10 @@
 class nodo:
-    def crear_nodo(self, data = None, next = None):
+    def __init__(self, data = None, next = None):
         self.data = data
         self.next = next
 
 class lista: 
-    def crear_lista(self):
+    def __init__(self):
         self.head = None
 
     def lista_vacia(self):
@@ -17,7 +17,7 @@ class lista:
         actual = self.head
         while actual.next:
             actual = actual.next
-        actual.next = nodo(data=dato)
+        actual.next = nodo(data = dato)
 
     def eliminar_nodo(self, elemento):
         if self.head != None:
@@ -37,7 +37,7 @@ class lista:
         if self.head != None:
             actual = self.head
             while actual != None:
-                print(actual.data + ", ")
+                print(str(actual.data), end = ", ")
                 actual = actual.next
 
 
@@ -48,6 +48,9 @@ s.insertar_elemento(2)
 s.insertar_elemento(3)
 
 s.imprimir_lista()
+
+
+    
 
 
 
