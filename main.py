@@ -1,5 +1,6 @@
 import os
 import msvcrt
+import sys
 
 class nodo:
     def __init__(self, data = None, next = None):
@@ -24,6 +25,7 @@ class lista:
         actual.next = nodo(data = dato)
 
     def eliminar_nodo(self, elemento):
+        
         if self.head != None:
             anterior = None
             actual = self.head
@@ -36,25 +38,30 @@ class lista:
                 actual = actual.next
             else:
                 anterior.next = actual.next
+        else:
+            print("Lista vacía, debes ingresar datos primero")
+            return
                 
     def imprimir_lista(self):
         if self.head != None:
             actual = self.head
             while actual != None:
-                print(actual.data, end = ", ")
+                print(actual.data, end = " -> ")
                 actual = actual.next
+            
+            print("\n")
+        else:
+            print("Lista vacía")
 
     def actualizar(self):
-        f = open("archico.txt", "w")
+        f = open("archivo.txt", "w")
         actual = self.head
 
         f.write("Actualización \n")
-
         while actual != None:
             f.write(actual.data)
             f.write("\n")
             actual = actual.next
-
         f.close()
 
 def MostrarMenu():
@@ -74,14 +81,14 @@ def wait(): #Wait until user press a key
     msvcrt.getch()
 
 class main():
+    s = lista()
 
     while True:
         MostrarMenu()
         choice = int(input("Ingrese una opción "))
-        s = lista()
 
         if choice == 1:
-            dato = int(input("Ingrese el número")) #Lack of exception handling
+            dato = input("Ingrese el número ")
             s.insertar_elemento(dato)
             cls()
             print("El elemento fue añadido a la lista")
@@ -89,7 +96,7 @@ class main():
             cls()
 
         elif choice == 2:
-            print("Estos son los datos actuales.")
+            print("Estos son los datos actuales:")
             s.imprimir_lista()
             wait()
             cls()
@@ -97,59 +104,28 @@ class main():
         elif choice == 3:
             print("Los elementos de la lista son: ")
             s.imprimir_lista()
-            aEliminar = input("Ingresa el elemento a eliminar tal y como se encuentra en la lista ")
-
+            aEliminar = input("Ingresa el elemento a eliminar tal y como se encuentra en la lista ")            
             s.eliminar_nodo(aEliminar)
+            cls()
+
             print("Ahora los elementos de la lista son: ")
-        
-        elif choice == 4:
-            print("""
-                Con este método actualizaras el archivo de texto y se te mostran 
-                los elementos que estén actualmente en la lista
-                Los elementos son: """)
-
             s.imprimir_lista()
-
-
-
-
-
-
-        elif choice == 4:
-            s.actualizar()
-
-
+            wait()
+            cls()
         
+        elif choice == 4:
 
+            print("Con este método actualizaras el archivo de texto ")
+            print("y se te mostrarán los elementos que estén actualmente ")
+            print("en la lista")
+            wait()
+            cls()
+            print("Los elementos son: ")
+            s.imprimir_lista()
+            s.actualizar()
+            print("El archivo ha sido actualizado. abrelo para ver los datos")
+            wait()
+            cls()
 
-
-
-
-s = lista()
-
-s.insertar_elemento(3)
-s.insertar_elemento("3")
-s.insertar_elemento("3")
-s.insertar_elemento("3")
-s.insertar_elemento("Jose")
-
-s.actualizar()
-
-s.eliminar_nodo("Jose")
-s.insertar_elemento("Manuela")
-
-s.imprimir_lista()
-
-s.actualizar()
-
-
-    
-
-
-
-
-
-
-
-
-
+        elif choice == 5:
+            sys.exit()
