@@ -7,6 +7,8 @@ class nodo:
 class lista: 
     def __init__(self):
         self.head = None
+    
+    
 
     def lista_vacia(self):
         return self.head == None
@@ -26,7 +28,7 @@ class lista:
         else:
             anterior = None
             actual = self.head
-            while actual != None and actual.dato != elemento:
+            while actual != None and actual.data != elemento:
                 anterior = actual
                 actual = actual.next
             if actual == None:
@@ -45,8 +47,7 @@ class lista:
                 print(str(actual.data), end = ", ")
                 actual = actual.next
 
-def actualizar():
-    
+    def actualizar(self):
 
 
 
