@@ -78,6 +78,11 @@ def wait(): #Wait until user press a key
     msvcrt.getch()
 
 class main():
+    print("En este programa ingresarás los nombres de tu estudiantes y se te mostrarán en un archivo de texto")
+    print("El archivo de texto está dentro de la misma carpeta. Cada que actualices debes volver a abrir el archivo")
+    print("para cargar la actualización")
+    time.sleep(10)
+
     s = lista()
     choice = 0
 
@@ -87,9 +92,6 @@ class main():
         try:
             choice = int(input("Ingrese una opción "))
         except ValueError:
-            print("Debes ingresar uno de los valores en el menú")
-            print("Intentalo de nuevo")
-            wait()
             cls()
 
         if choice < 1 or choice > 5:
@@ -97,13 +99,18 @@ class main():
             time.sleep(3)
             cls()
             continue
+
         elif choice == 1:
-            dato = input("Ingrese el número ")
-            s.insertar_elemento(dato)
-            cls()
-            print("El elemento fue añadido a la lista")
-            wait()
-            cls()
+            dato = input("Ingrese el nombre ")
+            
+            if not type(dato) == str:
+                print("Ingresa solo nombres. Intentalo de nuevo")
+                continue
+            else:
+                s.insertar_elemento(dato)
+                print("Insertado correctamente")
+                time.sleep(3)
+                cls()
 
         elif choice == 2:
             print("Estos son los datos actuales:")
