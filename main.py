@@ -9,7 +9,7 @@ class lista:
     def __init__(self):
         self.head = None
 
-    def crear_lista(self):
+    def lista_vacia(self):
         return self.head == None
 
     def insertar_elemento(self, dato):
@@ -22,11 +22,10 @@ class lista:
         actual.next = nodo(data = dato)
 
     def eliminar_nodo(self, elemento):
-        
         if self.head != None:
             anterior = None
             actual = self.head
-            while actual != None and actual.data != elemento:
+            while actual != None and actual.dato != elemento:
                 anterior = actual
                 actual = actual.next
             if actual == None:
@@ -40,19 +39,16 @@ class lista:
             return
                 
     def imprimir_lista(self):
-        if self.head != None:
+        if self.head == None:
+            print("Lo sentimos, no hay elementos en la lista")
+        else:
             actual = self.head
             while actual != None:
                 print(actual.data, end = " -> ")
                 actual = actual.next
-            
-            print("\n")
-        else:
-            print("Lista vacía")
 
-    def actualizar(self):
-        f = open("archivo.txt", "w")
-        actual = self.head
+def actualizar():
+    
 
         f.write("Actualización \n")
         while actual != None:
