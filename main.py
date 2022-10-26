@@ -66,7 +66,7 @@ def MostrarMenu():
   print(   "5.  Salir"   ) 
   print(   " -----------------------------------------------------------------"   ) 
 
-def cls(): #Clean console
+def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
 def wait(): #Wait until user press a key
