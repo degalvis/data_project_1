@@ -23,17 +23,22 @@ class lista:
 
     def eliminar_nodo(self, elemento):
         if self.head != None:
-            anterior = None
+            j = 0
             actual = self.head
-            while actual != None and actual.dato != elemento:
-                anterior = actual
+            siguiente = None
+
+            while actual != None and actual.data != elemento:
+                siguiente = actual
                 actual = actual.next
+                continue
+            
             if actual == None:
                 print("El elemento no se encuentra en la lista")
-            elif anterior == None:
-                actual = actual.next
+            elif actual.data == elemento:
+                self.head = actual.next
             else:
-                anterior.next = actual.next
+                j+=1
+                siguiente.next = actual.next
         else:
             print("Lista vacía, debes ingresar datos primero")
             return
@@ -47,9 +52,10 @@ class lista:
                 print(actual.data, end = " -> ")
                 actual = actual.next
 
-def actualizar():
-    
+    def actualizar(self):  
+        actual = self.head
 
+        f = open("archivo.txt", "w")
         f.write("Actualización \n")
         while actual != None:
             f.write(actual.data)
@@ -77,7 +83,7 @@ class main():
     print("En este programa ingresarás los nombres de tu estudiantes y se te mostrarán en un archivo de texto")
     print("El archivo de texto está dentro de la misma carpeta. Cada que actualices debes volver a abrir el archivo")
     print("para cargar la actualización")
-    time.sleep(10)
+    time.sleep(5)
 
     s = lista()
     choice = 0
